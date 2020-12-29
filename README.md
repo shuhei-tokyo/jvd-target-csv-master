@@ -1,5 +1,5 @@
 # jvd-target-csv-master
-JRA-VAN DataLab. Target にて出力する csv ファイルを用いて、各種マスターテーブルを作成するための issue 中心のレポジトリ
+JRA-VAN DataLab. Target の開催成績 csv ファイルにて使用されている各種コードを整理するための issue 中心のレポジトリ
 
 ## Target 開催成績 csv 出力項目
 
