@@ -1,5 +1,5 @@
 # jvd-target-csv-master
-JRA-VAN DataLab. Target の開催成績 csv ファイルにて使用されている各種コードをまとめる。
+JRA-VAN DataLab. Target の開催成績 csv 出力にて使用されている各種コードをまとめる。
 
 - jvd コード: [JRA-VAN Data Lab. SDK](https://jra-van.jp/dlb/sdv/sdk.html) で規定されたコード (v.4.5.1.5)
 - target コード： [Target](http://faqnavi13a.csview.jp/faq2/userqa.do?user=jravan&faq=faq01_target&id=285&parent=20) で規定されたコード
