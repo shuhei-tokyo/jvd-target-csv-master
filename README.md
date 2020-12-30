@@ -29,3 +29,6 @@ target csv 項目名 | 対応 jvd/target コード名 | csv | issue
 クラスコード | target クラスコード | [target_race_class_master.csv](./csv/target_race_class_master.csv) | [issues/2](https://github.com/shuhei-tokyo/jvd-target-csv-master/issues/2)
 トラックコード | target トラックコード | [target_track_type_master.csv](./csv/target_track_type_master.csv) | [issues/3](https://github.com/shuhei-tokyo/jvd-target-csv-master/issues/3)
 脚質 | target 脚質 | [target_running_style_master.csv](./csv/target_running_style_master.csv) | [issues/4](https://github.com/shuhei-tokyo/jvd-target-csv-master/issues/4)
+
+## 参考
+- [全マスターテーブル論理設計](./master-tables.md)
