@@ -5,7 +5,7 @@
 -- | -- | -- | -- | -- | -- | --
 id | INT | PK | YES | AI | 1 |  
 id_jvd | VARCHAR(20) |   | YES | UQ | 201812230605081108 | レースID(新)
-jra | BOOLEAN |   | YES |   | TRUE | 
+jra | BOOLEAN |   | YES |   | TRUE |  
 datetime | DATETIME |   | NO |   | 2018-12-23T15:40:00 | 年 + 月 + 日 + 発走時刻
 num_series | VARCHAR(3) |   | NO |   | 5 | 回次
 jvd_course_master_id | SMALLINT(6) |   | YES |   | 5 | jvd_course_master (場所)
@@ -14,10 +14,9 @@ num_race | TINYINT(4) |   | YES |   | 11 | レース番号
 short_name | VARCHAR(10) |   | YES |   | アイビスG3 | 略レース名
 name | VARCHAR(40) |   | YES |   | アイビスサマーダッシュ | レース名 (null の場合は略レース名)
 target_race_class_master_id | TINYINT(4) |   | YES |   | 195 | target_race_class_master (クラスコード)
-jvd_race_class_master_id | TINYINT(4) |   | NO |   | A | jvd_race_class_master (グレードコード)
-org_race_class_master_id | TINYINT(4) |   | YES |   | 1 | org_race_class_master (クラスコード、グレードコード)
+jvd_grade_master_id | TINYINT(4) |   | NO |   | A | jvd_grade_master (グレードコード)
 target_track_type_master_id | TINYINT(4) |   | YES |   | 0 | target_track_type_master (トラックコード)
-jvd_track_type_master_id | TINYINT(4) |   | YES |   | 24 | jvd_track_type_master (トラックコード(JV) )
+jvd_track_classification_master_id | TINYINT(4) |   | YES |   | 24 | jvd_track_classification_master (トラックコード(JV) )
 count_corners | TINYINT(4) |   | NO |   | 4 | コーナー回数
 distance | MEDIUMINT(9) |   | YES |   | 2400 | 距離
 track_section | VARCHAR(3) |   | NO |   | A | コース区分
@@ -25,7 +24,7 @@ jvd_track_condition_master_id | TINYINT(4) |   | NO |   | 2 | jvd_track_condit
 jvd_weather_master_id | TINYINT(4) |   | NO |   | 1 | jvd_weather_master (天候)
 headcount | TINYINT(4) |   | YES |   | 18 | 頭数
 jvd_race_breed_qualification_master_id | TINYINT(4) |   | YES |   | 14 | jvd_race_breed_qualification_master (競走種別コード)
-jvd_race_mark_master_id | VARCHAR(3) |   | YES |   | N01 | jvd_race_mark_master (競走記号コード)
+jvd_race_mark_master_id | SMALLINT(6) |   | YES |   | N01 | jvd_race_mark_master (競走記号コード)
 jvd_race_weight_regulation_master_id | TINYINT(4) |   | YES |   | 1 | jvd_race_weight_regulation_master (重量コード)
 horse_num | TINYINT(4) |   | YES |   | 18 | 馬番
 bracket_num | TINYINT(4) |   | YES |   | 8 | 枠番

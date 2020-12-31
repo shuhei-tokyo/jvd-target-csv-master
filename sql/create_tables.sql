@@ -11,10 +11,9 @@ create table race (
     short_name VARCHAR(10) not null,
     name VARCHAR(40) not null,
     target_race_class_master_id TINYINT(4) not null,
-    jvd_race_class_master_id TINYINT(4),
-    org_race_class_master_id TINYINT(4) not null,
+    jvd_grade_master_id TINYINT(4),
     target_track_type_master_id TINYINT(4) not null,
-    jvd_track_type_master_id TINYINT(4) not null,
+    jvd_track_classification_master_id TINYINT(4) not null,
     count_corners TINYINT(4),
     distance MEDIUMINT(9) not null,
     track_section VARCHAR(3),
@@ -22,7 +21,7 @@ create table race (
     jvd_weather_master_id TINYINT(4),
     headcount TINYINT(4) not null,
     jvd_race_breed_qualification_master_id TINYINT(4) not null,
-    jvd_race_mark_master_id VARCHAR(3) not null,
+    jvd_race_mark_master_id SMALLINT(6) not null,
     jvd_race_weight_regulation_master_id TINYINT(4) not null,
     horse_num TINYINT(4) not null,
     bracket_num TINYINT(4) not null,
@@ -87,7 +86,7 @@ create table jvd_race_mark_master (
     id SMALLINT(6) auto_increment primary key,
     id_jvd VARCHAR(4) unique not null,
     name VARCHAR(20),
-    name_english VARCHAR(20),
+    name_english VARCHAR(20)
 );
 
 # jvd_race_weight_regulation_master
@@ -156,26 +155,24 @@ create table jvd_belongings_master (
     name_sub VARCHAR(10)
 );
 
+# target_race_class_master
+create table target_race_class_master (
+    id TINYINT(4) auto_increment primary key,
+    id_target SMALLINT(6) unique not null,
+    name VARCHAR(10)
+);
+
 # target_track_type_master
-create target_track_type_master (
+create table target_track_type_master (
     id TINYINT(4) auto_increment primary key,
     id_target TINYINT(4) unique not null,
     name VARCHAR(10)
 );
 
 # target_running_style_master
-create target_running_style_master (
+create table target_running_style_master (
     id TINYINT(4) auto_increment primary key,
     name VARCHAR(10)
-);
-
-# org_race_class_master
-create table org_class_master (
-    id TINYINT(4),
-    target_race_class_master_id TINYINT(4),
-    jvd_grade_master_id TINYINT(4),
-    name VARCHAR(10),
-    short_name VARCHAR(10)
 );
 
 # org_horse_master
@@ -206,7 +203,7 @@ create table org_blood_mare_master (
 );
 
 # org_sire_line_master
-    create table org_sire_line_master (
+create table org_sire_line_master (
     id SMALLINT(6) auto_increment primary key,
     name VARCHAR(20) not null
 );
@@ -230,13 +227,13 @@ create table org_trainer_master (
 );
 
 # org_breeder_master
-    create table org_breeder_master (
+create table org_breeder_master (
     id SMALLINT(6) auto_increment primary key,
     name VARCHAR(100) not null
 );
 
 # org_owner_master
-    create table org_owner_master (
+create table org_owner_master (
     id SMALLINT(6) auto_increment primary key,
     name VARCHAR(50) not null
 );
