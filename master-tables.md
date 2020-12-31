@@ -5,6 +5,7 @@
 -- | -- | -- | -- | -- | -- | --
 id | INT | PK | YES | AI | 1 |  
 id_jvd | VARCHAR(20) |   | YES | UQ | 201812230605081108 | レースID(新)
+jra | BOOLEAN |   | YES |   | TRUE | 
 datetime | DATETIME |   | NO |   | 2018-12-23T15:40:00 | 年 + 月 + 日 + 発走時刻
 num_series | VARCHAR(3) |   | NO |   | 5 | 回次
 jvd_course_master_id | SMALLINT(6) |   | YES |   | 5 | jvd_course_master (場所)
@@ -191,3 +192,76 @@ name | VARCHAR(10) |   |   |   | 芝・外回り | 内容
 -- | -- | -- | -- | -- | -- | --
 id | TINYINT(4) | PK | YES | AI | 1 |  
 name | VARCHAR(10) |   |   |   | 逃げ | 名称
+
+## org_horse_master
+
+カラム名 | Datatype | キー | NN | EXTRA | 例 | 参照先
+-- | -- | -- | -- | -- | -- | --
+id | MEDIUMINT(9) | PK | YES | AI | 1 |  
+id_jvd | INT(11) |   | YES | UQ | 2015104882 | 血統登録番号
+name | VARCHAR(20) |   | YES |   | ブラストワンピース | 馬名
+birthday | DATE |   |   |   | 20150402 | 生年月日
+jvd_coat_color_master_id | TINYINT(4) |   |   |   | 2 | jvd_coat_color_master_id (毛色)
+org_sire_master_id | SMALLINT |   |   |   | 111 | org_sire_master_id (父馬名)
+org_blood_mare_master_id | MEDIUMINT |   |   |   | 111 | org_blood_mare_master_id (母馬名)
+org_breeder_master_id | SMALLINT |   |   |   | 111 | org_breeder_master_id (生産者)
+
+## org_sire_master
+
+カラム名 | Datatype | キー | NN | EXTRA | 例 | 参照先
+-- | -- | -- | -- | -- | -- | --
+id | SMALLINT(6) | PK | YES | AI | 1 |  
+name | VARCHAR(20) |   | YES |   | ハービンジャー | 父馬名
+org_sire_line_master_id | SMALLINT(6) |   |   |   | 10 | org_sire_line_master (父タイプ)
+
+## org_blood_mare_master
+
+カラム名 | Datatype | キー | NN | EXTRA | 例 | 参照先
+-- | -- | -- | -- | -- | -- | --
+id | MEDIUMINT(9) | PK | YES | AI | 1 |  
+name | VARCHAR(20) |   | YES |   | ツルマルワンピース | 母馬名
+org_sire_master_id | SMALLINT(6) |   |   |   | キングカメハメハ | 母父名
+org_sire_line_master_id | SMALLINT(6) |   |   |   | ネイティヴダンサー系 | 母父タイプ
+
+## org_sire_line_master
+
+カラム名 | Datatype | キー | NN | EXTRA | 例 | 参照先
+-- | -- | -- | -- | -- | -- | --
+id | SMALLINT(6) | PK | YES | AI | 1 |  
+name | VARCHAR(20) |   | YES |   | 二アークティック系 | 父タイプ, 母父タイプ
+
+## org_jockey_master
+
+カラム名 | Datatype | キー | NN | EXTRA | 例 | 参照先
+-- | -- | -- | -- | -- | -- | --
+id | SMALLINT(6) | PK | YES | AI | 1 |  
+id_jvd | SMALLINT(6) |   | YES | UQ | 1032 | 騎手コード
+name_four_words | VARCHAR(10) |   | YES |   | 池添謙一 | 騎手
+name | VARCHAR(10) |   |   |   | 池添謙一 |  
+jvd_belongings_master_id | TINYINT(4) |   |   |   | 1
+
+## org_trainer_master
+
+カラム名 | Datatype | キー | NN | EXTRA | 例 | 参照先
+-- | -- | -- | -- | -- | -- | --
+id | SMALLINT(6) | PK | YES | AI | 1 |  
+id_jvd | SMALLINT(6) |   | YES | UQ | 1102 | 調教師コード
+name_four_words | VARCHAR(10) |   | YES |   | 大竹正博 | 調教師
+name | VARCHAR(10) |   |   |   | 大竹正博 |  
+jvd_belongings_master_id | TINYINT(4) |   |   |   |   | jvd_belongings_master (所属)
+
+## org_breeder_master
+
+カラム名 | Datatype | キー | NN | EXTRA | 例 | 参照先
+-- | -- | -- | -- | -- | -- | --
+id | SMALLINT(6) | PK | YES | AI | 1 |  
+name | VARCHAR(100) |   | YES |   | ノーザンファーム | 生産者名
+
+## org_owner_master
+
+カラム名 | Datatype | キー | NN | EXTRA | 例 | 参照先
+-- | -- | -- | -- | -- | -- | --
+id | SMALLINT(6) | PK | YES | AI | 1 |  
+name | VARCHAR(50) |   | YES |   | シルクレーシング | 馬主名
+
+
