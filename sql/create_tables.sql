@@ -156,13 +156,6 @@ create table jvd_belongings_master (
     name_sub VARCHAR(10)
 );
 
-# target_race_class_master
-create table target_race_class_master (
-    id TINYINT(4) auto_increment primary key,
-    id_target SMALLINT(6) unique not null,
-    name VARCHAR(10)
-);
-
 # target_track_type_master
 create target_track_type_master (
     id TINYINT(4) auto_increment primary key,
@@ -174,6 +167,78 @@ create target_track_type_master (
 create target_running_style_master (
     id TINYINT(4) auto_increment primary key,
     name VARCHAR(10)
+);
+
+# org_race_class_master
+create table org_class_master (
+    id TINYINT(4),
+    target_race_class_master_id TINYINT(4),
+    jvd_grade_master_id TINYINT(4),
+    name VARCHAR(10),
+    short_name VARCHAR(10)
+);
+
+# org_horse_master
+create table org_horse_master (
+    id MEDIUMINT(9) auto_increment primary key,
+    id_jvd INT(11) unique not null,
+    name VARCHAR(20) not null,
+    birthday DATE,
+    jvd_coat_color_master_id TINYINT(4),
+    org_sire_master_id SMALLINT,
+    org_blood_mare_master_id MEDIUMINT,
+    org_breeder_master_id SMALLINT
+);
+
+# org_sire_master
+create table org_sire_master (
+    id SMALLINT(6) auto_increment primary key,
+    name VARCHAR(20) not null,
+    org_sire_line_master_id SMALLINT(6)
+);
+
+# org_blood_mare_master
+create table org_blood_mare_master (
+    id MEDIUMINT(9) auto_increment primary key,
+    name VARCHAR(20) not null,
+    org_sire_master_id SMALLINT(6),
+    org_sire_line_master_id SMALLINT(6)
+);
+
+# org_sire_line_master
+    create table org_sire_line_master (
+    id SMALLINT(6) auto_increment primary key,
+    name VARCHAR(20) not null
+);
+
+# org_jockey_master
+create table org_jockey_master (
+    id SMALLINT(6) auto_increment primary key,
+    id_jvd SMALLINT(6) unique not null,
+    name_four_words VARCHAR(10) not null,
+    name VARCHAR(10),
+    jvd_belongings_master_id TINYINT(4)
+);
+
+# org_trainer_master
+create table org_trainer_master (
+    id SMALLINT(6) auto_increment primary key,
+    id_jvd SMALLINT(6) unique not null,
+    name_four_words VARCHAR(10) not null,
+    name VARCHAR(10),
+    jvd_belongings_master_id TINYINT(4)
+);
+
+# org_breeder_master
+    create table org_breeder_master (
+    id SMALLINT(6) auto_increment primary key,
+    name VARCHAR(100) not null
+);
+
+# org_owner_master
+    create table org_owner_master (
+    id SMALLINT(6) auto_increment primary key,
+    name VARCHAR(50) not null
 );
 
 
